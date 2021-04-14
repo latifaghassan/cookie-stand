@@ -48,6 +48,7 @@
         }
     }; 
 
+
     // End of prototypes.
 
       //             HEADER 
@@ -131,7 +132,7 @@
          for (let i = 0 ; i < hours.length ; i++) {
          // we use newArray instead of locations.cookiePerHr[i]
 
-         sum = seatlle.cookiesPurches[i] +tokyo.cookiesPurches[i] +dubai.cookiesPurches[i] + paris.cookiesPurches[i] + lima.cookiesPurches[i];
+         sum = seatlle.cookiesPerhr[i] +tokyo.cookiesPerhr[i] +dubai.cookiesPerhr[i] + paris.cookiesPerhr[i] + lima.cookiesPerhr[i];
 
          megaTotal +=sum;
          
