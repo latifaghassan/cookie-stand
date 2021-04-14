@@ -1,11 +1,21 @@
 'use strict';
 
+//Global area.
 
-let hours = ['6am', '7am:', '8am:', '9am:', '10am:', '11am:', '12pm:', '1pm:', '2pm:', '3pm:', '4pm:', '5pm:', '6pm:', '7pm:'];
-let newArray = [];
+    let container = document.getElementById('SalmonCookies');
+
+    // The base of creating the table (instead of copying it 5 times, it's better to add it globaly and for once)
+    let tableEl = document.createElement('table');
+    container.appendChild(tableEl); 
+
+
+    let hours = ['6am', '7am:', '8am:', '9am:', '10am:', '11am:', '12pm:', '1pm:', '2pm:', '3pm:', '4pm:', '5pm:', '6pm:', '7pm:'];
+    let newArray = [];
    
+
  
-   // cunstructur function
+   // cunstructur functions.
+
    function Shop(location, minCus, maxCus, avgCookies) {
     this.location = location;
     this.minCus = minCus;
@@ -14,140 +24,145 @@ let newArray = [];
 
     this.cookiesPerhr = [];
     this.customerPerhr = [];
-
+    this.total = 0;
     
     newArray.push(this);
-   // console.log(this);
+   // Push all the object into the newArray we have in global.
       
     }
-     // prototype
-    let seatlle = new Shop('seatlle',23,65,6.3);
-    let tokyo = new Shop('tokyo',3,24,1.2,);
-    let dubai = new Shop('dubai',11,38,3.7,);
-    let paris = new Shop('paris',20,38,2.3,);
-    let lima = new Shop('lima',2,16,4.6,);
+     // Prototype Functions (it's better to add them in last area.
+
+   
+
+    // Prototype must be outside the constrctur functions.
 
     Shop.prototype.getRandom = function(){
         for (let i = 0; i <hours.length; i++) {
-            this.customerPerhr.push(Math.floor(Math.random() * (this.maxCus - this.minCus + 1) + this.minCus));
+            this.customerPerhr.push(Math.floor(Math.random() * (this.maxCus - this.minCus + 1) + this.minCus)); //for generating random numbers of customers.
         }
-    }
+    };
     Shop.prototype.cookiesPurches = function(){
-
-        //console.log(this.customerPerhr);
-
         for (let i = 0; i < this.customerPerhr.length; i++) {
             this.cookiesPerhr.push(Math.ceil(this.customerPerhr[i] * this.avgCookies));
-
             this.total += this.cookiesPerhr[i];
-          //  console.log(this.total);
         }
     }; 
 
-    let container = document.getElementById('SalmonCookies');
-    let tableEl = document.createElement('table');
-    container.appendChild(tableEl);  
-    Shop.prototype.render = function(){ 
-    }
-    
+    // End of prototypes.
 
-      function header() {
-        
+      //             HEADER 
+
+     // You can't use preporites inside 'alone functions'.
+
+     function header() {
+        //Header Row
         let rowHeader = document.createElement('tr');
         tableEl.appendChild(rowHeader);
-        let th2 = document.createElement("th");
-        rowHeader.appendChild(th2);
-        th2.textContent = '';
-        for (let i = 0; i < hours.length; i++) {
-        let th1 = document.createElement('th');
-        rowHeader.appendChild(th1);
-        th1.textContent = hours[i];
+        
+        // Empty cell. 
+        let empty = document.createElement("th");
+        rowHeader.appendChild(empty); 
+        empty.textContent = '';
 
+        // LOOP , Hours. 
+        let th = null;
+        for (let i = 0; i < hours.length; i++) {
+        let hoursText = document.createElement('th');
+        rowHeader.appendChild(hoursText);
+        hoursText.textContent = hours[i]; // 6am , 7am , 8am, .. 
         }
+
         let lastStanza = document.createElement('th');
         rowHeader.appendChild(lastStanza);
-        lastStanza.textContent = "Daily Location Total";
-    }
-
-    Shop.prototype.shops = function(){
-        let secondRow = document.createElement('tr');
-        tableEl.appendChild(secondRow);
-        let tdShops = document.createElement('td')
-        secondRow.appendChild(tdShops);
-        tdShops.textContent = this.location;
-
-        //console.log(this.cookiesPerhr);
-
-    
-    for ( let i = 0; i < this.cookiesPerhr.length ; i++){
-        let tdCookieshr = document.createElement('td');
-        secondRow.appendChild(tdCookieshr);
-        tdCookieshr.textContent = this.cookiesPerhr[i];
+        lastStanza.textContent = "Daily Total";
+     }
+      // We Finished The Header. 
 
 
+      //               BODY 
+
+      // You can use preporites in prototypes functions.
+
+        Shop.prototype.render = function () { //it's better to use reander here, it used to show somthing
+
+        let nextRow = document.createElement('tr');
+        tableEl.appendChild(nextRow);
+
+        let shopsLocation = document.createElement('th')
+        nextRow.appendChild(shopsLocation);
+        shopsLocation.textContent = this.location; // it will select all the locations.
+
+         // LOOP , Cookie purchase per hour. 
+        
+         let td = null;
+
+    for ( let i = 0; i < this.cookiesPurches.length ; i++){
+        cookieHr = document.createElement('td');
+        nextRow.appendChild(cookieHr);
+        cookieHr.textContent = this.cookiesPurches[i];
         }
         
-
+        let dailyTotal = document.createElement('th');
+        nextRow.appendChild(dailyTotal);
+        dailyTotal.textContent = this.total;
     }
-    header();
+   
+    // We Finished The Body. 
 
     
-    for ( let i = 0; i < newArray.length ; i++){
-        newArray[i].getRandom();   
-        newArray[i].cookiesPurches();
-        newArray[i].shops();
+    //               FOOTER 
+
+        //**********/
+        function footer () {
+         // Raw
+        let lastRow = document.createElement('tr');
+        tableEl.appendChild(lastRow);
+         
+        let firstCell = document.createElement('th');
+        lastRow.appendChild(firstCell );
+        firstCell.textContent = 'Total';
+        //**********/
+
+        let sum = 0;
+        let td = null;
+        let megaTotal = 0;
         
-
-    }
-
-    footerForTotal();
-
-
-    function footerForTotal () {
-
-        let dailyTotal = 0;
-        let finalTotal = 0
-        let footTotal = document.createElement('footTotal');
-        tableEl.appendChild(footTotal);
-
-        //Total
-        let trFooter = document.createElement('tr');
-        tableEl.appendChild(trFooter);
-        
-        let tdFinallTotal = document.createElement('th');
-        trFooter.appendChild(tdFinallTotal );
-        tdFinallTotal.textContent = 'Total';
-        
-        
+         // Nested Loops 
          for (let i = 0 ; i < hours.length ; i++) {
-        
-        
-         for (let j = 0 ; j < newArray.length ; j++) {
-        
-        finalTotal += newArray[j].cookiesPerhr[i];
+         // we use newArray instead of locations.cookiePerHr[i]
+
+         sum = seatlle.cookiesPurches[i] +tokyo.cookiesPurches[i] +dubai.cookiesPurches[i] + paris.cookiesPurches[i] + lima.cookiesPurches[i];
+
+         megaTotal +=sum;
+         
+         td= document.createElement('td');
+         lastRow.appendChild(td);
+         td.textContent = sum;
+         }
+         let allTotals = document.createElement('td');
+         lastRow.appendChild(allTotals);
+         allTotals.textContent = megaTotal;
         }
-        dailyTotal += finalTotal;
+        // Callings heroes
+
+        let seatlle = new Shop('seatlle',23,65,6.3);
+        let tokyo = new Shop('tokyo',3,24,1.2,);
+        let dubai = new Shop('dubai',11,38,3.7,);
+        let paris = new Shop('paris',20,38,2.3,);
+        let lima = new Shop('lima',2,16,4.6,);
+
+
+        header();
+
+
+        for ( let i = 0; i < newArray.length ; i++){
+            newArray[i].getRandom();   
+            newArray[i].cookiesPurches();
+            newArray[i].render();
         
-        let td = document.createElement('th');
-        trFooter.appendChild(td);
-        td.textContent = finalTotal;
-          }
-       
-           
-        let tdDailyTotal = document.createElement('th');
-        trFooter.appendChild(tdDailyTotal);
-        tdDailyTotal.textContent = dailyTotal;
         }
-     
-    
-    
 
-    //seatlle.getRandom()
-    //seatlle.cookiesPurches()
-   // seatlle.header();
-   // seatlle.shops();
-
-
+        footer();
 
     
     
@@ -432,4 +447,4 @@ const lima = {
 lima.getRandom();
 lima.cookiesPurches();
 lima.SalesList();
-*/
+*////
