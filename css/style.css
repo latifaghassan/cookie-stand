@@ -182,7 +182,7 @@ nav ul .saleslink {
 }
 #location{
     text-align: center;
-    padding: 1px 2px;
+    padding: 9px 16px;
     border-width: 2px;
     border-style: inset;
     border-color: rgb(245, 173, 173);
@@ -192,29 +192,53 @@ nav ul .saleslink {
 #minCus{
     text-align: center;
     border-color: rgb(245, 173, 173);
+    padding: 9px 16px;
 
 }
 #maxCus{
     text-align: center;
     border-color: rgb(245, 173, 173);
+    padding: 9px 16px;
 
 }
 
 #avgCookies{
     text-align: center;
     border-color: rgb(245, 173, 173);
+    padding: 9px 16px;
+    
 
 }
 
 input[type="submit" i] {
-    background-color:antiquewhite;
+    background-color:rgba(153, 89, 10, 0.479);
     padding: 9px 53px;
     border-style: dotted;
+    position: absolute;
+    bottom: 0em;
+    right: 18em;
 }
 
 input#submit {
-    color: rgb(145, 113, 113);
+    color: rgb(252, 252, 252);
     font-family: cursive;
     font-weight: bold;
     font-size: 1em;
+}
+
+fieldset {
+    margin-inline-start: 284px;
+    margin-inline-end: 179px;
+    padding-block-start: 5.35em;
+    padding-block-end: 3.625em;
+    padding-inline-end: 2.75em;
+    border-style: none;
+}
+
+table {
+    border-spacing: 21px;
+    position:absolute;
+    bottom: -21em;
+    right: -11em;
+
 }
