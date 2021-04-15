@@ -177,7 +177,8 @@ nav ul .saleslink {
 #SalmonCookies {
     font-weight: bold;
     font-size: 116%;
-    color:rgb(5, 172, 158)
+    color:rgb(5, 172, 158);
+    font-family: cursive;
 }
 #location{
     text-align: center;
@@ -203,4 +204,17 @@ nav ul .saleslink {
     text-align: center;
     border-color: rgb(245, 173, 173);
 
+}
+
+input[type="submit" i] {
+    background-color:antiquewhite;
+    padding: 9px 53px;
+    border-style: dotted;
+}
+
+input#submit {
+    color: rgb(145, 113, 113);
+    font-family: cursive;
+    font-weight: bold;
+    font-size: 1em;
 }
