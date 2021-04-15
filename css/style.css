@@ -169,3 +169,38 @@ nav ul .saleslink {
     position: absolute;
     top: 33em;
     left: 22em;
+}
+
+
+/********************** form ***********************/
+
+#SalmonCookies {
+    font-weight: bold;
+    font-size: 116%;
+    color:rgb(5, 172, 158)
+}
+#location{
+    text-align: center;
+    padding: 1px 2px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: rgb(245, 173, 173);
+    
+}
+
+#minCus{
+    text-align: center;
+    border-color: rgb(245, 173, 173);
+
+}
+#maxCus{
+    text-align: center;
+    border-color: rgb(245, 173, 173);
+
+}
+
+#avgCookies{
+    text-align: center;
+    border-color: rgb(245, 173, 173);
+
+}
