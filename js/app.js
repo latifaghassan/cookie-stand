@@ -170,30 +170,25 @@ footer();
 const form = document.getElementById('shopsForm');
 
 form.addEventListener('submit', handleSubmitting);
-
 function handleSubmitting(event){
     event.preventDefault();
-  
-    console.log(event);
-    let newLocationName = event.target.locationField.value;
+    console.log(event.target);
+
     
-    let location = event.target.locationField.value;
-    //console.log(location);
-    location = location.split(',')
-    //console.log(location);
+    let shopName = event.target.name.value;
 
-    let minCus = event.target.minCusField.value;
-    //console.log(minCus);
-    //minCus = minCus.split(',')
-    //console.log(minCus);
-
-    let maxCus = event.target.maxCusField.value;
+    let min = parseInt(event.target.minCus.value)
+    let max  = parseInt(event.target.maxCus.value)
     //console.log(maxCus);
-
-    let avgCookies = event.target.avgCookiesField.value;
+    let avg  = parseFloat(event.target.avgCookies.value)
    // console.log(avgCookies);
 
-    let newShops = new Shop(newLocationName,minCus,maxCus,avgCookies);
+    let newShop = new Shop(shopName, min, max, avg);
+
+    newShop.getRandom();
+    newShop.cookiesPurches();
+    newShop.render();
+
 }
 
 
