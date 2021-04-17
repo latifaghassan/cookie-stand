@@ -9,9 +9,9 @@ let tableEl = document.createElement('table');
 container.appendChild(tableEl);
 
 
-let hours = ['6am', '7am:', '8am:', '9am:', '10am:', '11am:', '12pm:', '1pm:', '2pm:', '3pm:', '4pm:', '5pm:', '6pm:', '7pm:'];
+let hours = ['6am:','7am:','8am:','9am:','10am:','11am:','12pm:','1pm:','2pm:','3pm:','4pm:','5pm:','6pm:','7pm:','8pm:'];
 let newArray = [];
-
+console.log(newArray);
 
 
 // cunstructur functions.
@@ -22,10 +22,9 @@ function Shop(location, minCus, maxCus, avgCookies) {
     this.maxCus = maxCus;
     this.avgCookies = avgCookies;
 
-    this.cookiesPerhr = [];
     this.customerPerhr = [];
-    this.total = 0;
-
+    this.cookiesPerhr = [];
+    this.total=0;
     newArray.push(this);
     // Push all the object into the newArray we have in global.
 
@@ -36,15 +35,16 @@ function Shop(location, minCus, maxCus, avgCookies) {
 
 // Prototype must be outside the constrctur functions.
 
-Shop.prototype.getRandom = function () {
-    for (let i = 0; i < hours.length; i++) {
+Shop.prototype.getRandom = function (){
+    for (let i=0;i<hours.length;i++){
         this.customerPerhr.push(Math.floor(Math.random() * (this.maxCus - this.minCus + 1) + this.minCus)); //for generating random numbers of customers.
     }
 };
-Shop.prototype.cookiesPurches = function () {
-    for (let i = 0; i < this.customerPerhr.length; i++) {
-        this.cookiesPerhr.push(Math.ceil(this.customerPerhr[i] * this.avgCookies));
-        this.total += this.cookiesPerhr[i];
+
+Shop.prototype.cookiesPurches = function (){
+    for (let i=0; i<hours.length; i++) {
+        this.cookiesPerhr.push(Math.ceil(this.avgCookies*this.customerPerhr[i]));
+        this.total = this.total+this.cookiesPerhr[i];
     }
 };
 
@@ -61,22 +61,24 @@ function header() {
     tableEl.appendChild(rowHeader);
 
     // Empty cell. 
-    let empty = document.createElement("th");
+    let empty = document.createElement('th');
     rowHeader.appendChild(empty);
     empty.textContent = '';
 
     // LOOP , Hours. 
     let th = null;
     for (let i = 0; i < hours.length; i++) {
-        let hoursText = document.createElement('th');
-        rowHeader.appendChild(hoursText);
-        hoursText.textContent = hours[i]; // 6am , 7am , 8am, .. 
+        th = document.createElement('th');
+        rowHeader.appendChild(th);
+        th.textContent=hours[i]; // 6am , 7am , 8am, .. 
     }
 
     let lastStanza = document.createElement('th');
     rowHeader.appendChild(lastStanza);
-    lastStanza.textContent = "Daily Total";
+    lastStanza.textContent=('Daily Hour');
 }
+
+header();
 // We Finished The Header. 
 
 
@@ -89,107 +91,111 @@ Shop.prototype.render = function () { //it's better to use reander here, it used
     let nextRow = document.createElement('tr');
     tableEl.appendChild(nextRow);
 
-    let shopsLocation = document.createElement('th')
+    let shopsLocation = document.createElement('th');
     nextRow.appendChild(shopsLocation);
-    shopsLocation.textContent = this.location; // it will select all the locations.
+    shopsLocation.textContent=this.location; // it will select all the locations.
 
     // LOOP , Cookie purchase per hour. 
 
     let td = null;
 
-    for (let i = 0; i < this.cookiesPurches.length; i++) {
-        cookieHr = document.createElement('td');
-        nextRow.appendChild(cookieHr);
-        cookieHr.textContent = this.cookiesPurches[i];
+    for (let i = 0; i < hours.length; i++) {
+        td  = document.createElement('td');
+        nextRow.appendChild(td);
+        td.textContent=this.cookiesPerhr[i];
     }
 
-    let dailyTotal = document.createElement('th');
+    let dailyTotal = document.createElement('td');
     nextRow.appendChild(dailyTotal);
     dailyTotal.textContent = this.total;
-}
+};
+
+  Shop.prototype.calculation=function(){
+      this.getRandom();
+      this.cookiesPurches();
+      this.render();
+    }
 
 // We Finished The Body. 
+      let seatlle = new Shop('Seatlle', 23, 65, 6.3);
+      let tokyo = new Shop('Tokyo', 3, 24, 1.2,);
+      let dubai = new Shop('Dubai', 11, 38, 3.7,);
+      let paris = new Shop('Paris', 20, 38, 2.3,);
+      let lima = new Shop('Lima', 2, 16, 4.6,);
 
+
+    seatlle.calculation();
+    tokyo.calculation();
+    dubai.calculation();
+    paris.calculation();
+    lima.calculation();
+  
 
 //               FOOTER 
 
 //**********/
-function footer() {
+function footer(){
     // Raw
-    let lastRow = document.createElement('tr');
+    let lastRow=document.createElement('tr');
     tableEl.appendChild(lastRow);
 
-    let firstCell = document.createElement('th');
-    lastRow.appendChild(firstCell);
-    firstCell.textContent = 'Total';
+    let tableData=document.createElement('th');
+    lastRow.appendChild(tableData);
+    tableData.textContent = 'Totals';
     //**********/
 
-    let sum = 0;
-    let td = null;
-    let megaTotal = 0;
+    let allCookies=0;
 
-    // Nested Loops 
-    for (let i = 0; i < hours.length; i++) {
-        // we use newArray instead of locations.cookiePerHr[i]
+    for(let i=0;i<hours.length;i++){
 
-        sum = seatlle.cookiesPerhr[i] + tokyo.cookiesPerhr[i] + dubai.cookiesPerhr[i] + paris.cookiesPerhr[i] + lima.cookiesPerhr[i];
+    let totalHr = 0;
 
-        megaTotal += sum;
+    for(let j=0;j<newArray.length;j++){
 
-        td = document.createElement('td');
-        lastRow.appendChild(td);
-        td.textContent = sum;
+    totalHr = totalHr + newArray [j].cookiesPerhr[i];
     }
-    let allTotals = document.createElement('td');
-    lastRow.appendChild(allTotals);
-    allTotals.textContent = megaTotal;
-}
-// Callings heroes
 
-let seatlle = new Shop('seatlle', 23, 65, 6.3);
-let tokyo = new Shop('tokyo', 3, 24, 1.2,);
-let dubai = new Shop('dubai', 11, 38, 3.7,);
-let paris = new Shop('paris', 20, 38, 2.3,);
-let lima = new Shop('lima', 2, 16, 4.6,);
-
-
-header();
-
-for (let i = 0; i < newArray.length; i++) {
-    newArray[i].getRandom();
-    newArray[i].cookiesPurches();
-    newArray[i].render();
-
+    tableData= document.createElement('td');
+    lastRow.appendChild(tableData);
+    tableData.textContent=totalHr;
+    allCookies=allCookies+totalHr;
 }
 
+    let lastData = document.createElement('td');
+    lastRow.appendChild(lastData);
+    lastData.textContent=allCookies;
+}
 footer();
 
 
-// form
+
 
 const form = document.getElementById('shopsForm');
 
+ 
 form.addEventListener('submit', handleSubmitting);
 function handleSubmitting(event){
     event.preventDefault();
     console.log(event.target);
-
+ 
     
-    let shopName = event.target.name.value;
-
+    let shopName = event.target.location.value;
+ 
     let min = parseInt(event.target.minCus.value)
     let max  = parseInt(event.target.maxCus.value)
     //console.log(maxCus);
     let avg  = parseFloat(event.target.avgCookies.value)
    // console.log(avgCookies);
-
+ 
     let newShop = new Shop(shopName, min, max, avg);
-
+ 
     newShop.getRandom();
     newShop.cookiesPurches();
     newShop.render();
+ 
+  
+ };
 
-}
 
 
 
