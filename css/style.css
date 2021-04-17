@@ -1,5 +1,6 @@
 body {
     background-color: rgb(248, 177, 106);
+    position: relative;
 }
 
 nav ul {
@@ -25,13 +26,34 @@ nav ul .sales a {
 nav ul .sales {
     font-weight: bold;
 }
+/*****************************/
+
+
 
 .mainlogo {
-    position: absolute;
-    bottom: 18em;
-    left: 26em;
-    height: 35em;
-    width: 60em;
+    position: relative;
+    bottom: 5em;
+    left: 37em;
+    height: 25em;
+    width: 42em;
+
+}
+
+.mainlogo1{
+    position: relative;
+    bottom: 4em;
+    left: -3em;
+    height: 21em;
+    width: 36em;
+}
+
+.hours {
+    position: relative;
+    bottom: 76em;
+    left: 25em;
+    height: 8em;
+    width: 23em;
+    
 }
 
 .background {
@@ -42,124 +64,93 @@ nav ul .sales {
 
 
 .seattle {
-    position: absolute;
-    bottom: -6em;
-    left: 0em;
-    height: 24em;
-    width: 35em;
-
+    position: relative;
+    bottom: 2em;
+    left: 17em;
+    height: 16em;
+    width: 26em;
 }
 
 .tokyo {
-    position: absolute;
-    bottom: -4em;
-    left: 64em;
-    height: 22em;
-    width: 34em;
+    position: relative;
+    bottom: 2em;
+    left: 20em;
+    height: 16em;
+    width: 26em;
 }
 
 .dubai {
-    position: absolute;
-    bottom: -5em;
-    left: 33em;
-    height: 23em;
-    width: 34em;
+    position: relative;
+    bottom: 2em;
+    left: 21em;
+    height: 16em;
+    width: 26em;
 
 }
 
 .paris {
-    position: absolute;
-    bottom: -30em;
-    left: 20em;
-    height: 24em;
-    width: 34em;
+    position: relative;
+    bottom: -15em;
+    left: -20em;
+    height: 16em;
+    width: 26em;
 
 
 }
 
 .lima{
-    position: absolute;
-    bottom: -29em;
-    left: 54em;
-    height: 24em;
-    width: 36em;
+    position: relative;
+    bottom: 1em;
+    left: 30em;
+    height: 16em;
+    width: 26em;
 
 }
 
-.hours {
-    position: absolute;
-    bottom: 44em;
-    left: 82em;
-    height: 9em;
-    width: 23em;
-    
-}
 
-.cutter {
-    position: absolute;
-    bottom: -50em;
-    left: 33em;
-    height: 14em;
-    width: 18em;
-}
+
 
 .advice{
-    position: absolute;
-    bottom: -77em;
-    left: 35em;
-    height: 24em;
-    width: 36em;
-}
-
-.fish{
-    position: fixed;
-    bottom: 45em;
-    left: 96em;
-    height: 9em;
-    width: 9em;
-}
-
-.frosted{
-    position: absolute;
-    bottom: -50em;
-    left: 58em;
-    height: 14em;
-    width: 18em;
-}
-
-.family{
-    position: absolute;
-    bottom: -92em;
-    left: -4em;
-    height: 32em;
-    width: 48em;
-}
-
-.shirt {
-    position: absolute;
-    bottom: -81em;
-    left: 72em;
-    height: 22em;
-    width: 25em;
+    position: relative;
+    bottom: 50em;
+    left: 50em;
+    height: 13em;
+    width: 20em;
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*****main page link********/
 
 nav ul .saleslink {
-    text-decoration: none;
     font-size: 118%;
     font-style: oblique;
     padding-top: 1% ;
 }
 
 nav ul .saleslink a {
-    text-decoration: none;
     font-weight: bold;
     color: rgb(68, 37, 5);
+    font-size: 233%;
+    text-decoration: none;
 }
 
 nav ul .saleslink {
     font-weight: bold;
+    
+/*********main page link***********/
 
 }
 
@@ -171,55 +162,78 @@ nav ul .saleslink {
     left: 22em;
 }
 
+label {
+    position: relative;
+    left: 12em;
+    bottom: -1em;
+}
 
 /********************** form ***********************/
 
 #SalmonCookies {
     font-weight: bold;
-    font-size: 116%;
-    color:rgb(5, 172, 158);
+    font-size: 165%;
+    color: rgb(5, 172, 158);
     font-family: cursive;
 }
 #location{
+    position: relative;
+    bottom: -1em;
+    left: 19em;
+    font-size: 23px;
     text-align: center;
     padding: 9px 16px;
     border-width: 2px;
     border-style: inset;
     border-color: rgb(245, 173, 173);
     
+    
 }
 
 #minCus{
+    position: relative;
+    bottom: -1em;
+    left: 377px;
+    font-size: 23px;
     text-align: center;
     border-color: rgb(245, 173, 173);
-    padding: 9px 16px;
-
+    padding: 12px 15px;
 }
 #maxCus{
+    position: relative;
+    bottom: -1em;
+    left: 16em;
+    font-size: 23px;
     text-align: center;
     border-color: rgb(245, 173, 173);
-    padding: 9px 16px;
-
+    padding: 10px 16px;
 }
 
 #avgCookies{
+    position: relative;
+    bottom: -1em;
+    left: 383px;
+    font-size: 23px;
     text-align: center;
     border-color: rgb(245, 173, 173);
-    padding: 9px 16px;
+    padding: 10px 16px;
     
 
 }
 
 input[type="submit" i] {
-    background-color:rgba(153, 89, 10, 0.479);
+    background-color: rgba(153, 89, 10, 0.479);
     padding: 9px 53px;
     border-style: dotted;
-    position: absolute;
-    bottom: 0em;
-    right: 18em;
+    position: relative;
+    bottom: 21em;
+    right: -24em;
 }
 
 input#submit {
+    position: relative;
+    bottom: -1em;
+    left: 26em;
     color: rgb(252, 252, 252);
     font-family: cursive;
     font-weight: bold;
@@ -227,18 +241,21 @@ input#submit {
 }
 
 fieldset {
-    margin-inline-start: 284px;
-    margin-inline-end: 179px;
-    padding-block-start: 5.35em;
-    padding-block-end: 3.625em;
-    padding-inline-end: 2.75em;
-    border-style: none;
+    position: relative;
+    bottom: 21em;
+    left: -7em;
+    padding-bottom: 3em;
+}
+table {
+    position: relative;
+    bottom: 19em;
+    right: 7em;
+    background-color: blanchedalmond;
 }
 
 table {
     border-spacing: 21px;
-    position: absolute;
-    bottom: 28em;
-    right: 1em;
+    
 
 }
+
