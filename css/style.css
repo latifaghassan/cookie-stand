@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
+
 body {
     background-color: rgb(248, 177, 106);
     position: relative;
+    background: url(https://i.pinimg.com/originals/dd/a9/69/dda9699c19f0bea3ab5d57d1d71ad0f2.png);
 }
 
 nav ul {
@@ -32,19 +35,19 @@ nav ul .sales {
 
 .mainlogo {
     position: relative;
-    bottom: 5em;
-    left: 37em;
-    height: 25em;
-    width: 42em;
+    bottom: 2em;
+    left: 36em;
+    height: 16em;
+    width: 44em;
 
 }
 
 .mainlogo1{
     position: relative;
-    bottom: 4em;
-    left: -3em;
-    height: 21em;
-    width: 36em;
+    bottom: 5em;
+    left: 53em;
+    height: 17em;
+    width: 39em;
 }
 
 .hours {
@@ -112,12 +115,64 @@ nav ul .sales {
 
 .advice{
     position: relative;
-    bottom: 50em;
+    bottom: 44em;
     left: 50em;
     height: 13em;
     width: 20em;
 }
 
+.why{ 
+    position: relative;
+    bottom: -20em;
+    left: -39em;
+    height: 8em;
+    width: 15em;
+
+}
+
+.catchy1 {
+    position: relative;
+    top: -134em;
+    left: 4em;
+    color: rgba(54, 22, 3);
+    font-size: 2em;
+    line-height: 1em;
+    font-family: 'Chewy', cursive;
+    word-spacing: 15px;
+    padding-bottom: 26px;
+}
+
+.coco { 
+    position: relative;
+    bottom: -22em;
+    left: -41em;
+    height: 15em;
+    width: 15em;
+
+}
+
+.Salmon {
+
+    position: relative;
+    top: -1190px;
+    left: 542px;
+    height: 35em;
+    width: 2em;
+    font-size: 121px;
+    font-weight: bold;
+    font-family: 'Chewy', cursive;
+    color: rgb(68, 37, 5);
+}
+
+
+
+.fishlogo {
+    position: relative;
+    height: 15em;
+    width: 18em;
+    left: 70em;
+    bottom: 55em;
+}
 
 
 
